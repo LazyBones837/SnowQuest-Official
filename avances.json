@@ -1,7 +1,12 @@
 [
     {
-        "titulo": "¡HE LOGRADO CREAR MI PÁGINA!",
+        "titulo": "¡SISTEMA DE ADMINISTRACIÓN ACTIVO!",
         "fecha": "19 de Abril, 2026",
-        "enlace": "https://google.com"
+        "enlace": "#"
+    },
+    {
+        "titulo": "Primer avance: Sincronización de interfaz",
+        "fecha": "19 de Abril, 2026",
+        "enlace": "#"
     }
 ]
