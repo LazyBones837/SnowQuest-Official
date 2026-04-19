@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Snow Quest</title>
+    
+    <style>
+        /* FUENTES */
+        @font-face { font-family: 'DeterminationMono'; src: url('DeterminationMonoWebRegular-Z5oq.ttf') format('truetype'); }
+        @font-face { font-family: 'DeterminationSans'; src: url('DeterminationSansWebRegular-369X.ttf') format('truetype'); }
+
+        body {
+            background-color: #000; color: #fff;
+            font-family: 'DeterminationSans', sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            margin: 0; padding: 40px 20px;
+        }
+
+        .container { max-width: 650px; width: 100%; text-align: center; }
+        .logo-container { margin-bottom: 20px; }
+        .main-logo { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        header p { font-family: 'DeterminationMono'; color: #ccc; margin-bottom: 30px; }
+
+        /* SUSCRIPCIÓN */
+        .subscribe-section {
+            border: 3px solid #fff; padding: 30px; margin-bottom: 50px; background: #0a0a0a;
+        }
+        .subscribe-section h2 { font-family: 'DeterminationMono'; font-size: 2em; margin: 0 0 20px 0; }
+        
+        input { font-family: 'DeterminationMono'; padding: 10px; width: 60%; border: 2px solid #fff; background: #000; color: #fff; }
+        button { font-family: 'DeterminationMono'; padding: 10px 20px; background: #fff; border: none; cursor: pointer; }
+
+        /* LISTA DINÁMICA DE AVANCES */
+        .archive-section { text-align: left; border-top: 2px dashed #333; padding-top: 30px; }
+        .archive-section h2 { font-family: 'DeterminationMono'; text-align: center; font-size: 2.5em; }
+
+        .archive-list { list-style: none; padding: 0; }
+        .archive-item {
+            margin-bottom: 25px; padding-left: 15px; border-left: 3px solid #555;
+            transition: 0.3s;
+        }
+        .archive-item:hover { border-left-color: #ffff00; }
+        .archive-item a { font-family: 'DeterminationMono'; color: #ffff00; text-decoration: none; font-size: 1.5em; display: block; }
+        .archive-item span { color: #888; font-size: 0.8em; }
+
+        footer { font-family: 'DeterminationMono'; margin-top: 60px; color: #555; text-align: center; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo snow.png" alt="Logo Snow Quest" class="main-logo">
+            </div>
+            <p>* Registro de administrador: Acceso concedido.</p>
+        </header>
+
+        <section class="subscribe-section">
+            <h2>ALERTAS DE PROGRESO</h2>
+            <form action="#"><input type="email" placeholder="tu@correo.com"><button type="submit">UNIRSE</button></form>
+        </section>
+
+        <section class="archive-section">
+            <h2>LOG DE AVANCES</h2>
+            <ul class="archive-list" id="lista-avances">
+                <li style="text-align:center; color:#444;">Cargando archivos...</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer><p>© 2026 Admin Panel - Snow Quest</p></footer>
+
+    <script>
+        // EL CEREBRO DEL SISTEMA: Lee el archivo avances.json
+        fetch('avances.json')
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById('lista-avances');
+                lista.innerHTML = ''; // Limpiar mensaje de carga
+
+                if(data.length === 0) {
+                    lista.innerHTML = '<li style="text-align:center; color:#444;">No hay publicaciones aún.</li>';
+                    return;
+                }
+
+                // Generar cada elemento de la lista
+                data.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'archive-item';
+                    li.innerHTML = `
+                        <a href="${item.enlace}">${item.titulo}</a>
+                        <span>${item.fecha}</span>
+                    `;
+                    lista.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('lista-avances').innerHTML = '<li style="text-align:center; color:red;">Error al cargar el log.</li>';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNOWQUEST'S NEWSLETTERS</title>
+    
+    <style>
+        /* 1. INTEGRACIÓN DE FUENTES LOCALES */
+        @font-face {
+            font-family: 'DeterminationMono';
+            src: url('DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'DeterminationSans';
+            src: url('DeterminationSansWebRegular-369X.ttf') format('truetype');
+        }
+
+        /* 2. ESTILOS GENERALES */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'DeterminationSans', sans-serif; 
+            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ESTILOS DEL LOGO */
+        .logo-container {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-logo {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header p {
+            font-family: 'DeterminationMono', monospace;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            color: #cccccc;
+        }
+
+        /* SECCIÓN DE SUSCRIPCIÓN */
+        .subscribe-section {
+            border: 3px solid #ffffff;
+            padding: 30px 20px;
+            margin-bottom: 50px;
+            background-color: #0a0a0a;
+        }
+
+        .subscribe-section h2 {
+            font-family: 'DeterminationMono', monospace;
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        input[type="email"] {
+            font-family: 'DeterminationMono', monospace;
+            font-size: 22px;
+            padding: 10px;
+            width: 60%;
+            min-width: 200px;
+            border: 2px solid #ffffff;
+            background: #000000;
+            color: #ffffff;
+            outline: none;
+        }
+
+        button {
+            font-family: 'DeterminationMono', monospace;
+            font-size: 22px;
+            padding: 10px 20px;
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* SECCIÓN DE ARCHIVO (Vacía por ahora) */
+        .archive-section {
+            text-align: left;
+            border-top: 2px dashed #333333;
+            padding-top: 30px;
+        }
+
+        .archive-section h2 {
+            font-family: 'DeterminationMono', monospace;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .archive-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .no-content {
+            text-align: center;
+            font-family: 'DeterminationMono', monospace;
+            color: #555555;
+            font-style: italic;
+        }
+
+        footer {
+            font-family: 'DeterminationMono', monospace;
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #555555;
+            text-align: center;
+            border-top: 1px solid #333333;
+            padding-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="logo-container">
+                <img src="logo snow.png" alt="Logo Snow Quest" class="main-logo">
+            </div>
+            <p>Noticias, actualizaciones y cosas extrañas enviadas directamente a tu bandeja de entrada. A veces.</p>
+        </header>
+
+        <section class="subscribe-section">
+            <h2>SUSCRÍBETE</h2>
+            <form action="#" onsubmit="event.preventDefault(); alert('¡Próximamente disponible!');">
+                <div class="form-group">
+                    <input type="email" placeholder="tu@correo.com" required>
+                    <button type="submit">UNIRSE</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="archive-section">
+            <h2>ARCHIVOS ANTERIORES</h2>
+            <ul class="archive-list">
+                <li class="no-content">Todavía no hay publicaciones disponibles.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 LazyBones. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
